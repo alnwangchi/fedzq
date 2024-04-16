@@ -1,6 +1,7 @@
 import React from 'react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { JavaScript } from '@/components/interview/JavaScript';
+import { QJavaScript } from '@/components/interview/QJavaScript';
+import { QReact } from '@/components/interview/QReact';
 
 const page = () => {
   return (
@@ -14,10 +15,12 @@ const page = () => {
         <TabsTrigger value='personality'>personality</TabsTrigger>
       </TabsList>
       <TabsContent value='javascript'>
-        <JavaScript />
+        <QJavaScript />
       </TabsContent>
-      <TabsContent value='css'></TabsContent>
-      <TabsContent value='react'>Change your react here.</TabsContent>
+      <TabsContent value='css'>css</TabsContent>
+      <TabsContent value='react'>
+        <QReact />
+      </TabsContent>
       <TabsContent value='cicd'>Change your react here.</TabsContent>
       <TabsContent value='internet'>Change your react here.</TabsContent>
       <TabsContent value='personality'>Change your react here.</TabsContent>

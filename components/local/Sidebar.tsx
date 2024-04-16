@@ -46,6 +46,11 @@ export default function Sidebar() {
           icon: <BookCheck />,
           text: 'question',
         },
+        {
+          href: '/interview/report',
+          icon: <BookCheck />,
+          text: 'report',
+        },
       ],
     },
     {

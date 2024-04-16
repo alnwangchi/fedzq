@@ -3,7 +3,7 @@ import { Inter } from 'next/font/google';
 import './globals.css';
 import Sidebar from '@/components/local/Sidebar';
 import { cn } from '@/lib/utils';
-
+import { Toaster } from '@/components/ui/toaster';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
@@ -20,7 +20,8 @@ export default function RootLayout({
     <html lang='en'>
       <body className={cn('flex', inter.className)}>
         <Sidebar />
-        <div className='pt-5 grow'>{children}</div>
+        <div className='py-5 grow'>{children}</div>
+        <Toaster />
       </body>
     </html>
   );

@@ -8,7 +8,7 @@ export function Textarea({ question = 'Question', note, ...field }: any) {
     <FormItem>
       <FormLabel className='pl-2'>{question}</FormLabel>
       <FormControl>
-        <TextareaCN placeholder='Record' className='resize-none' {...field} />
+        <TextareaCN placeholder='...' className='resize-none' {...field} />
       </FormControl>
       <FormDescription>{note && note}</FormDescription>
       <FormMessage />
