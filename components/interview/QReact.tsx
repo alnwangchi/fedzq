@@ -5,22 +5,27 @@ import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 
 import { Button } from '@/components/ui/button';
-import {
-  Form,
-  FormControl,
-  FormDescription,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from '@/components/ui/form';
+import { Form, FormField } from '@/components/ui/form';
 
 import { toast } from '@/components/ui/use-toast';
-import { Textarea } from '../form/Textarea';
-import { jsQuestion, reactQuestion } from '@/constance/questions';
+import { reactQuestion } from '@/constance/questions';
 import { Fragment } from 'react';
+import { Textarea } from '../form/Textarea';
 
-const FormSchema = z.object(Object.fromEntries(jsQuestion.map((obj) => [obj.question, obj.rule])));
+const flattenedReactQuestions = reactQuestion.flatMap((item) => {
+  if (item.list) {
+    return item.list.map((subItem) => ({
+      question: subItem.question,
+      rule: subItem.rule,
+    }));
+  } else {
+    return { question: item.question, rule: item.rule };
+  }
+});
+
+const FormSchema = z.object(
+  Object.fromEntries(flattenedReactQuestions.map((obj) => [obj.question, obj.rule])),
+);
 
 export function QReact() {
   const form = useForm<z.infer<typeof FormSchema>>({
@@ -51,9 +56,9 @@ export function QReact() {
                         {q.list.map((subQ) => (
                           <FormField
                             control={form.control}
-                            key={subQ.q}
-                            name={subQ.q}
-                            render={({ field }) => <Textarea question={subQ.q} {...field} />}
+                            key={subQ.question}
+                            name={subQ.question}
+                            render={({ field }) => <Textarea question={subQ.question} {...field} />}
                           />
                         ))}
                       </div>
