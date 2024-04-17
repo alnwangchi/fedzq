@@ -11,6 +11,7 @@ import { toast } from '@/components/ui/use-toast';
 import { reactQuestion } from '@/constance/questions';
 import { Fragment } from 'react';
 import { Textarea } from '../form/Textarea';
+import { useInterviewDispatch } from '@/Providers/InterviewContext';
 
 const flattenedReactQuestions = reactQuestion.flatMap((item) => {
   if (item.list) {
@@ -27,13 +28,18 @@ const FormSchema = z.object(
   Object.fromEntries(flattenedReactQuestions.map((obj) => [obj.question, obj.rule])),
 );
 
+const emptyField = Object.fromEntries(flattenedReactQuestions.map((obj) => [obj.question, '']));
+
 export function QReact() {
+  const dispatch: any = useInterviewDispatch();
+
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
   });
 
   function onSubmit(data: z.infer<typeof FormSchema>) {
-    console.log(data);
+    dispatch({ type: 'react', data });
+    form.reset(emptyField);
     toast({
       title: 'submitted:',
       description: <span> ok!</span>,

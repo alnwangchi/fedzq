@@ -28,15 +28,15 @@ const Content = () => {
         <div className='grid grid-cols-2 grid-rows-auto gap-5'>
           <div className='space-y-3'>
             <h3>Javascript</h3>
-            {Object.entries(interviewData?.javascript || {}).map(([key, value], idx) => {
+            {Object.entries(interviewData?.javascript).map(([key, value], idx) => {
               return <QA key={key} q={key} a={value as string} />;
             })}
           </div>
           <div className='space-y-3'>
             <h3>React</h3>
-            {/* {Object.entries(interviewData?.javascript).map(([key, value], idx) => {
+            {Object.entries(interviewData?.react).map(([key, value], idx) => {
               return <QA key={key} q={key} a={value as string} />;
-            })} */}
+            })}
           </div>
         </div>
       </div>

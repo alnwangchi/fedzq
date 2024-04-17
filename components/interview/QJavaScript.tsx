@@ -22,6 +22,8 @@ import { useInterviewDispatch } from '@/Providers/InterviewContext';
 
 const FormSchema = z.object(Object.fromEntries(jsQuestion.map((obj) => [obj.question, obj.rule])));
 
+const emptyField = Object.fromEntries(jsQuestion.map((obj) => [obj.question, '']));
+
 export function QJavaScript() {
   const dispatch: any = useInterviewDispatch();
   const form = useForm<z.infer<typeof FormSchema>>({
@@ -31,7 +33,7 @@ export function QJavaScript() {
   function onSubmit(data: z.infer<typeof FormSchema>) {
     // console.log(data);
     dispatch({ type: 'javascript', data });
-    form.reset();
+    form.reset(emptyField);
     toast({
       title: 'submitted:',
       description: <span> ok!</span>,
