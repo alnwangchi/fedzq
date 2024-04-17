@@ -1,6 +1,6 @@
 import { ReactNode, createContext, useContext, useReducer } from 'react';
 
-function interviewReducer(state, action) {
+function interviewReducer(state: any, action: any) {
   switch (action.type) {
     case 'javascript': {
       return { ...state, javascript: { ...action.data } };
@@ -21,7 +21,7 @@ const initialState = {
   javascript: {},
   css: {},
   react: {},
-};
+} as const;
 
 const InterviewContext = createContext(null);
 
@@ -32,7 +32,7 @@ export function InterviewProvider({ children }: { children: ReactNode }) {
 
   return (
     <InterviewContext.Provider value={tasks}>
-      <InterviewDispatchContext.Provider value={dispatch}>
+      <InterviewDispatchContext.Provider value={dispatch as any}>
         {children}
       </InterviewDispatchContext.Provider>
     </InterviewContext.Provider>

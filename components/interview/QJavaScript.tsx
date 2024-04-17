@@ -23,7 +23,7 @@ import { useInterviewDispatch } from '@/Providers/InterviewContext';
 const FormSchema = z.object(Object.fromEntries(jsQuestion.map((obj) => [obj.question, obj.rule])));
 
 export function QJavaScript() {
-  const dispatch = useInterviewDispatch();
+  const dispatch: any = useInterviewDispatch();
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
   });

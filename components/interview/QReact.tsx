@@ -45,7 +45,7 @@ export function QReact() {
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className='w-full'>
           <div className='grid grid-cols-2 gap-5 auto-rows-auto'>
-            {reactQuestion.map((q) => {
+            {reactQuestion.map((q: any) => {
               if (Object.hasOwn(q, 'list')) {
                 return (
                   <Fragment key={q.question}>
@@ -53,7 +53,7 @@ export function QReact() {
                       <p className='text-sm font-medium mb-5 pl-2'>{q.question}</p>
 
                       <div className='grid grid-cols-3 gap-5'>
-                        {q.list.map((subQ) => (
+                        {q.list.map((subQ: any) => (
                           <FormField
                             control={form.control}
                             key={subQ.question}
