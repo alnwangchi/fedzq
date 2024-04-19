@@ -1,7 +1,15 @@
 'use client';
 
 import { Command, CommandGroup, CommandItem, CommandList } from '@/components/ui/command';
-import { BookCheck, CircleDashed, Disc3, LogOut, Settings, User } from 'lucide-react';
+import {
+  BookCheck,
+  CircleDashed,
+  Disc3,
+  LogOut,
+  MessageCircleQuestion,
+  Settings,
+  User,
+} from 'lucide-react';
 import Link from 'next/link';
 import { Button } from '../ui/button';
 import UserItem from './UserItem';
@@ -42,9 +50,9 @@ export default function Sidebar() {
           text: 'record',
         },
         {
-          href: '/interview/question',
-          icon: <BookCheck />,
-          text: 'question',
+          href: '/interview/questions',
+          icon: <MessageCircleQuestion />,
+          text: 'questions',
         },
         {
           href: '/interview/report',
