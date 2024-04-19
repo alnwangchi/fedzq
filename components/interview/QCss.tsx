@@ -17,26 +17,26 @@ import {
 
 import { toast } from '@/components/ui/use-toast';
 import { Textarea } from '../form/Textarea';
-import { jsQuestion } from '@/constance/questions';
+
 import { useInterviewDispatch } from '@/Providers/InterviewContext';
+import { cssQuestion } from '@/constance/questions';
 
-const FormSchema = z.object(Object.fromEntries(jsQuestion.map((obj) => [obj.question, obj.rule])));
+const FormSchema = z.object(Object.fromEntries(cssQuestion.map((obj) => [obj.question, obj.rule])));
 
-const emptyField = Object.fromEntries(jsQuestion.map((obj) => [obj.question, '']));
+const emptyField = Object.fromEntries(cssQuestion.map((obj) => [obj.question, '']));
 
-export function QJavaScript() {
+export function QCss() {
   const dispatch: any = useInterviewDispatch();
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
   });
 
   function onSubmit(data: z.infer<typeof FormSchema>) {
-    // console.log(data);
-    dispatch({ type: 'javascript', data });
+    dispatch({ type: 'css', data });
     form.reset(emptyField);
     toast({
-      title: 'submitted:',
-      description: <span> ok!</span>,
+      title: 'submit css data',
+      description: <span> done</span>,
     });
   }
 
@@ -45,12 +45,12 @@ export function QJavaScript() {
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className='w-full'>
           <div className='record-grid-layout'>
-            {jsQuestion.map((q) => (
+            {cssQuestion.map((q) => (
               <FormField
                 control={form.control}
                 key={q.question}
                 name={q.question}
-                render={({ field }) => <Textarea question={q.question} link={q.link} {...field} />}
+                render={({ field }) => <Textarea question={q.question} link={q?.link} {...field} />}
               />
             ))}
           </div>

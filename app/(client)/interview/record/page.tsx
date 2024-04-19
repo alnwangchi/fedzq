@@ -2,6 +2,7 @@ import React from 'react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { QJavaScript } from '@/components/interview/QJavaScript';
 import { QReact } from '@/components/interview/QReact';
+import { QCss } from '@/components/interview/QCss';
 
 const page = () => {
   return (
@@ -17,7 +18,9 @@ const page = () => {
       <TabsContent value='javascript'>
         <QJavaScript />
       </TabsContent>
-      <TabsContent value='css'>css</TabsContent>
+      <TabsContent value='css'>
+        <QCss />
+      </TabsContent>
       <TabsContent value='react'>
         <QReact />
       </TabsContent>

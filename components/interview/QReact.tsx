@@ -47,10 +47,10 @@ export function QReact() {
   }
 
   return (
-    <div className=' max-h-[calc(100vh-100px)] overflow-y-auto px-2'>
+    <div className=' max-h-[calc(100vh-100px)] overflow-y-auto'>
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className='w-full'>
-          <div className='grid grid-cols-2 gap-5 auto-rows-auto'>
+          <div className='record-grid-layout'>
             {reactQuestion.map((q: any) => {
               if (Object.hasOwn(q, 'list')) {
                 return (
@@ -85,7 +85,7 @@ export function QReact() {
               }
             })}
           </div>
-          <Button className='block my-5 ml-auto mr-5' type='submit'>
+          <Button className='fixed-bottom-right' type='submit'>
             Submit
           </Button>
         </form>

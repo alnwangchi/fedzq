@@ -43,7 +43,7 @@ const page = () => {
             </div>
           </div>
         </div>
-        <div className='fixed bottom-5 right-5 space-x-4'>
+        <div className='fixed-bottom-right space-x-4'>
           <TooltipProvider>
             <Tooltip>
               <TooltipTrigger asChild>
