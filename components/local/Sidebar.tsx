@@ -1,6 +1,9 @@
 'use client';
 
 import { Command, CommandGroup, CommandItem, CommandList } from '@/components/ui/command';
+import { LogoutLink } from '@kinde-oss/kinde-auth-nextjs/components';
+import { useKindeBrowserClient } from '@kinde-oss/kinde-auth-nextjs';
+
 import {
   BookCheck,
   CircleDashed,
@@ -13,8 +16,31 @@ import {
 import Link from 'next/link';
 import { Button } from '../ui/button';
 import UserItem from './UserItem';
+import { KindeUser } from '@/type';
 
 export default function Sidebar() {
+  const {
+    permissions,
+    isLoading,
+    user,
+    accessToken,
+    organization,
+    userOrganizations,
+    getPermission,
+    getBooleanFlag,
+    getIntegerFlag,
+    getFlag,
+    getStringFlag,
+    getClaim,
+    getAccessToken,
+    getToken,
+    getIdToken,
+    getOrganization,
+    getPermissions,
+    getUserOrganizations,
+  } = useKindeBrowserClient();
+
+  console.log(user);
   const menuList = [
     {
       group: 'General',
@@ -76,7 +102,7 @@ export default function Sidebar() {
   return (
     <div className='flex flex-col gap-4 w-[300px] min-w-[300px] border-r min-h-screen p-5'>
       <div>
-        <UserItem />
+        <UserItem user={user as KindeUser} />
       </div>
       <div className='grow'>
         <Command style={{ overflow: 'visible' }}>
@@ -98,7 +124,9 @@ export default function Sidebar() {
       </div>
       <div>
         <Button variant='outline'>
-          <LogOut />
+          <LogoutLink>
+            <LogOut />
+          </LogoutLink>
         </Button>
       </div>
     </div>
