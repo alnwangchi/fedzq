@@ -1,8 +1,13 @@
 import Qpersonal from '@/components/interview/Qpersonal';
-import React from 'react';
 import { Separator } from '@/components/ui/separator';
+import { getKindeServerSession } from '@kinde-oss/kinde-auth-nextjs/server';
 
-const page = () => {
+const page = async () => {
+  const { getUser } = getKindeServerSession();
+  const user = await getUser();
+
+  if (process.env.ALLON_ID !== user?.id) return <p>GG</p>;
+
   return (
     <section>
       <h3 className='text-xl font-bold mb-5 ml-3'>Opening</h3>
@@ -17,7 +22,7 @@ const page = () => {
           </p>
           <p>
             小型接案公司主要是能不需依賴 UI libary
-            能手刻各種設計稿，會離開原因是這只是個轉職過渡的位置
+            能手刻各種設計稿，離開原因是這只是個轉職過渡的位置
           </p>
           <p>
             政府標案公司開始使用 React
