@@ -1,13 +1,16 @@
 'use client';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { KindeUser } from '@/type';
+import { RippleLoader } from './loaders';
 
 export default function UserItem({ user }: { user: KindeUser | null }) {
   return (
     <div className='flex items-center justify-between gap-3 border rounded-[8px] p-2'>
       <Avatar>
         <AvatarImage src={user?.picture} />
-        <AvatarFallback>QQ</AvatarFallback>
+        <AvatarFallback>
+          <RippleLoader />
+        </AvatarFallback>
       </Avatar>
 
       <div className='grow'>

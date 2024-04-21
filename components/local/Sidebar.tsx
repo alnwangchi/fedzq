@@ -1,27 +1,29 @@
 'use client';
 
 import { Command, CommandGroup, CommandItem, CommandList } from '@/components/ui/command';
-import { LogoutLink } from '@kinde-oss/kinde-auth-nextjs/components';
+import { KindeUser } from '@/type';
 import { useKindeBrowserClient } from '@kinde-oss/kinde-auth-nextjs';
-
+import { LogoutLink } from '@kinde-oss/kinde-auth-nextjs/components';
 import {
   BookCheck,
   CircleDashed,
   Disc3,
+  Loader2,
   LogOut,
   MessageCircleQuestion,
   Settings,
   User,
 } from 'lucide-react';
 import Link from 'next/link';
+import { useState } from 'react';
 import { Button } from '../ui/button';
 import UserItem from './UserItem';
-import { KindeUser } from '@/type';
 
 export default function Sidebar() {
+  const [isLoading, setIsLoading] = useState(false);
   const {
     permissions,
-    isLoading,
+    // isLoading,
     user,
     accessToken,
     organization,
@@ -40,7 +42,7 @@ export default function Sidebar() {
     getUserOrganizations,
   } = useKindeBrowserClient();
 
-  console.log({ user });
+  // console.log({ user });
   const menuList = [
     {
       group: 'General',
@@ -123,9 +125,15 @@ export default function Sidebar() {
         </Command>
       </div>
       <div>
-        <Button variant='outline'>
+        <Button
+          variant='outline'
+          disabled={isLoading}
+          onClick={() => {
+            setIsLoading(true);
+          }}
+        >
           <LogoutLink>
-            <LogOut />
+            {isLoading ? <Loader2 className='mr-2 h-4 w-4 animate-spin' /> : <LogOut />}
           </LogoutLink>
         </Button>
       </div>
