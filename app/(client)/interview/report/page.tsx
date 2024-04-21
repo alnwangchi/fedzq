@@ -9,6 +9,23 @@ import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
 
 const page = () => {
+  return <Content />;
+};
+
+export default page;
+
+const QA = ({ q, a }: { q: string; a: string }) => (
+  <div className='space-y-6'>
+    <div>
+      <h3 className='text-sm font-medium text-muted-foreground'>{q}</h3>
+      <p className='text-md'>{a}</p>
+    </div>
+  </div>
+);
+
+// 不拉出一個元件 會有錯誤
+// Error: React Hook "useInterview" is called in function "page" that is neither a React function component nor a custom React Hook function. React component names must start with an uppercase letter. React Hook names must start with the word "use".
+const Content = () => {
   const interviewData: any = useInterview();
   const { toPDF, targetRef } = usePDF({ filename: 'page.pdf' });
 
@@ -74,14 +91,3 @@ const page = () => {
     </>
   );
 };
-
-export default page;
-
-const QA = ({ q, a }: { q: string; a: string }) => (
-  <div className='space-y-6'>
-    <div>
-      <h3 className='text-sm font-medium text-muted-foreground'>{q}</h3>
-      <p className='text-md'>{a}</p>
-    </div>
-  </div>
-);
