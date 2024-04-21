@@ -7,12 +7,7 @@ import { QCss } from '@/components/interview/QCss';
 
 const page = () => {
   return (
-    <Tabs
-      defaultValue='javascript'
-      onValueChange={(value) => {
-        console.log('🚀 ~ e:', value);
-      }}
-    >
+    <Tabs defaultValue='javascript'>
       <TabsList className='grid w-full grid-cols-6 mb-5'>
         <TabsTrigger value='javascript'>javascript</TabsTrigger>
         <TabsTrigger value='css'>css</TabsTrigger>

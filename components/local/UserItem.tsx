@@ -4,17 +4,17 @@ import { KindeUser } from '@/type';
 
 export default function UserItem({ user }: { user: KindeUser | null }) {
   return (
-    <div className='flex items-center justify-between gap-2 border rounded-[8px] p-2'>
+    <div className='flex items-center justify-between gap-3 border rounded-[8px] p-2'>
       <Avatar>
         <AvatarImage src={user?.picture} />
         <AvatarFallback>QQ</AvatarFallback>
       </Avatar>
 
       <div className='grow'>
-        <p className='text-[16px] font-bold'>
+        <span className='text-[16px] font-bold block mb-[-4px]'>
           {user?.given_name} {user?.family_name}
-        </p>
-        <p className='text-[12px] text-neutral-500'>{user?.email}</p>
+        </span>
+        <span className='text-[12px] text-neutral-500 mt-[-4px]'>{user?.email}</span>
       </div>
     </div>
   );
