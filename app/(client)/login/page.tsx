@@ -22,9 +22,9 @@ export default function AuthenticationPage() {
           </div>
           <UserAuthForm />
 
-          <HeartbeatButton>
-            <LoginLink>Sign in</LoginLink>
-          </HeartbeatButton>
+          {/* <HeartbeatButton> */}
+          <LoginLink>Sign in</LoginLink>
+          {/* </HeartbeatButton> */}
 
           <RegisterLink>Sign up</RegisterLink>
         </div>

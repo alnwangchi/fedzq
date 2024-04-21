@@ -40,7 +40,7 @@ export default function Sidebar() {
     getUserOrganizations,
   } = useKindeBrowserClient();
 
-  console.log(user);
+  console.log({ user });
   const menuList = [
     {
       group: 'General',

@@ -45,7 +45,7 @@ export default async function RootLayout({
   // console.log(await isAuthenticated());
 
   const isAuth = await isAuthenticated();
-  console.log('🚀 ~ isAuth:', isAuth);
+  // console.log('🚀 ~ isAuth:', isAuth);
 
   return (
     <html lang='en'>
