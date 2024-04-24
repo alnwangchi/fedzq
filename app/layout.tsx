@@ -6,6 +6,7 @@ import { cn } from '@/lib/utils';
 import { Toaster } from '@/components/ui/toaster';
 const inter = Inter({ subsets: ['latin'] });
 import { getKindeServerSession } from '@kinde-oss/kinde-auth-nextjs/server';
+import { ThemeProvider } from '@/components/theme-provider';
 
 export const metadata: Metadata = {
   title: '前端當自強',
@@ -48,11 +49,18 @@ export default async function RootLayout({
   // console.log('🚀 ~ isAuth:', isAuth);
 
   return (
-    <html lang='en'>
+    <html lang='en' suppressHydrationWarning>
       <body className={cn('flex', inter.className)}>
-        {isAuth && <Sidebar />}
-        <div className='grow max-h-screen overflow-y-auto'>{children}</div>
-        <Toaster />
+        <ThemeProvider
+          attribute='class'
+          defaultTheme='system'
+          enableSystem
+          disableTransitionOnChange
+        >
+          {isAuth && <Sidebar />}
+          <div className='grow max-h-screen overflow-y-auto'>{children}</div>
+          <Toaster />
+        </ThemeProvider>
       </body>
     </html>
   );
