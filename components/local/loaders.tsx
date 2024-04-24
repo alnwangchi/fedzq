@@ -53,7 +53,7 @@ export const PulsatingDots = () => {
     <div className='flex items-center justify-center'>
       <div className='flex space-x-2'>
         <motion.div
-          className='h-3 w-3 rounded-full bg-white'
+          className='h-2 w-2 rounded-full bg-white'
           animate={{
             scale: [1, 1.5, 1],
             opacity: [0.5, 1, 0.5],
@@ -65,7 +65,7 @@ export const PulsatingDots = () => {
           }}
         />
         <motion.div
-          className='h-3 w-3 rounded-full bg-white'
+          className='h-2 w-2 rounded-full bg-white'
           animate={{
             scale: [1, 1.5, 1],
             opacity: [0.5, 1, 0.5],
@@ -78,7 +78,7 @@ export const PulsatingDots = () => {
           }}
         />
         <motion.div
-          className='h-3 w-3 rounded-full bg-white'
+          className='h-2 w-2 rounded-full bg-white'
           animate={{
             scale: [1, 1.5, 1],
             opacity: [0.5, 1, 0.5],

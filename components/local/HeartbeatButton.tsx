@@ -8,7 +8,7 @@ const HeartbeatButton = ({ children }: { children: any }) => {
   return (
     <div>
       <button
-        className='m-9 animate-buttonheartbeat rounded-md bg-red-500 px-6 py-2 text-sm font-semibold text-white min-h-9'
+        className='m-3 animate-buttonheartbeat rounded-md bg-red-500 px-6 py-2 text-sm font-semibold text-white min-h-9'
         onClick={() => {
           setIsLoading(true);
         }}
