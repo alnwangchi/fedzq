@@ -13,7 +13,7 @@ export const RippleLoader = () => {
   };
 
   const rippleTransition = {
-    duration: 2,
+    duration: 3,
     ease: 'easeInOut',
     repeat: Infinity,
     repeatDelay: 1,
@@ -21,7 +21,7 @@ export const RippleLoader = () => {
 
   return (
     <div className='flex items-center justify-center'>
-      <div className='relative h-10 w-10'>
+      <div className='relative h-6 w-6'>
         <motion.div
           className='absolute h-full w-full rounded-full bg-red-500 opacity-0'
           variants={rippleVariants}
