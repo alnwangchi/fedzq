@@ -6,8 +6,7 @@ import { LoginLink, RegisterLink } from '@kinde-oss/kinde-auth-nextjs/components
 import Footer from '@/components/local/Footer';
 
 export const metadata: Metadata = {
-  title: 'Authentication',
-  description: 'Authentication forms built using the components.',
+  description: 'FEDZQ login page 前端當自強 歡迎您加入',
 };
 
 export default function AuthenticationPage() {
