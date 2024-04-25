@@ -1,16 +1,6 @@
-import React from 'react';
-
-const Block = ({ title, content }: any) => (
-  <li className='mb-10 ms-4'>
-    <div className='absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -start-1.5 border border-white dark:border-gray-900 dark:bg-gray-700'></div>
-    <h3 className='text-lg font-semibold text-gray-900 dark:text-white mb-2'>{title}</h3>
-    <p className='mb-4 text-base font-normal text-gray-500 dark:text-gray-400'>{content}</p>
-  </li>
-);
-
 const page = () => (
   <div className='flex gap-5'>
-    <div className='w-1/2 max-h-screen overflow-y-auto'>
+    <div className='w-1/2 max-h-screen overflow-y-auto px-3'>
       <h2 className='text-2xl fony-semibold mb-5'>面試流程</h2>
       <ol className='relative border-s border-gray-200 dark:border-gray-700'>
         <Block
@@ -51,7 +41,7 @@ const page = () => (
         <Block title='QA' />
       </ol>
     </div>
-    <div className='w-1/2 max-h-screen overflow-y-auto'>
+    <div className='w-1/2 max-h-screen overflow-y-auto px-3'>
       <h2 className='text-2xl fony-semibold mb-5'>提問核心</h2>
       <ol className='relative border-s border-gray-200 dark:border-gray-700'>
         <Block
@@ -123,3 +113,11 @@ const page = () => (
 );
 
 export default page;
+
+const Block = ({ title, content }: any) => (
+  <li className='mb-10 ms-4'>
+    <div className='absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -start-1.5 border border-white dark:border-gray-900 dark:bg-gray-700'></div>
+    <h3 className='text-lg font-semibold text-gray-900 dark:text-white mb-2'>{title}</h3>
+    <div className='mb-4 text-base font-normal text-gray-500 dark:text-gray-400'>{content}</div>
+  </li>
+);
