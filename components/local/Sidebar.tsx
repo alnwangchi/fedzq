@@ -12,6 +12,7 @@ import {
   LogOut,
   MessageCircleQuestion,
   Settings,
+  ThumbsDown,
   User,
 } from 'lucide-react';
 import Link from 'next/link';
@@ -49,20 +50,10 @@ export default function Sidebar() {
       group: 'General',
       items: [
         {
-          href: '/',
+          href: '/general/profile',
           icon: <User />,
           text: 'Profile',
         },
-        // {
-        //   href: '/',
-        //   icon: <Inbox />,
-        //   text: 'Inbox',
-        // },
-        // {
-        //   href: '/',
-        //   icon: <BellIcon />,
-        //   text: 'Notifications',
-        // },
       ],
     },
     {
@@ -79,14 +70,19 @@ export default function Sidebar() {
           text: 'record',
         },
         {
-          href: '/interview/questions',
-          icon: <MessageCircleQuestion />,
-          text: 'questions',
-        },
-        {
           href: '/interview/report',
           icon: <BookCheck />,
           text: 'report',
+        },
+        {
+          href: '/interview/preparation',
+          icon: <MessageCircleQuestion />,
+          text: 'preparation',
+        },
+        {
+          href: '/interview/what-job-suck',
+          icon: <ThumbsDown />,
+          text: 'what job suck',
         },
       ],
     },
@@ -94,9 +90,9 @@ export default function Sidebar() {
       group: 'Settings',
       items: [
         {
-          href: '/',
+          href: '/settings',
           icon: <Settings />,
-          text: 'General Settings',
+          text: 'Settings',
         },
       ],
     },
