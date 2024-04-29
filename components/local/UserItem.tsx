@@ -2,10 +2,19 @@
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { KindeUser } from '@/type';
 import { RippleLoader } from './loaders';
+import { cn } from '@/lib/utils';
 
-export default function UserItem({ user }: { user: KindeUser | null }) {
+export default function UserItem({
+  user,
+  className,
+}: {
+  user: KindeUser | null;
+  className?: string;
+}) {
   return (
-    <div className='flex items-center justify-between gap-3 border rounded-[8px] p-2'>
+    <div
+      className={cn('flex items-center justify-between gap-3 border rounded-[8px] p-2', className)}
+    >
       <Avatar>
         <AvatarImage src={user?.picture} />
         <AvatarFallback>
