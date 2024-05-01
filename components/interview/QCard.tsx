@@ -13,6 +13,7 @@ type QCardProps = {
 
 const QCard = ({ title, desc, children, defaultInEdit = false }: QCardProps) => {
   const [inEdit, setInEdit] = useState(defaultInEdit);
+
   return (
     <Card>
       <CardHeader>
@@ -23,21 +24,14 @@ const QCard = ({ title, desc, children, defaultInEdit = false }: QCardProps) => 
         <CardDescription className='max-w-[75%]'>{desc}</CardDescription>
       </CardHeader>
       <CardContent className='text-md flex flex-col max-h-[480px] overflow-y-auto'>
-        {inEdit ? <Tiptap /> : children}
+        {inEdit ? (
+          <Tiptap title={title} inEdit key='edit' />
+        ) : (
+          <Tiptap title={title} inEdit={false} key='read' />
+        )}
       </CardContent>
     </Card>
   );
 };
 
 export default QCard;
-
-// const Editor = () => {
-//   return (
-//     <div>
-//       <Tiptap />
-//       <Button className='block ml-auto' type='submit'>
-//         Save
-//       </Button>
-//     </div>
-//   );
-// };
