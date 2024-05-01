@@ -6,7 +6,7 @@ const QYouWillBeAsked = () => {
     <>
       <div className='grid grid-cols-2 auto-rows-auto gap-5'>
         {youWillBeAskedQuestion.map((q) => (
-          <QCard title={q.question} desc={q.desc} />
+          <QCard key={q.question} title={q.question} desc={q.desc} />
         ))}
       </div>
       Ｏ

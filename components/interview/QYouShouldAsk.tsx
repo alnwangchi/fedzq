@@ -10,7 +10,7 @@ const QYouShouldAsk = () => {
       <h3 className='text-xl font-bold mb-5 ml-3'>Opening</h3>
       <div className='grid grid-cols-2 auto-rows-auto gap-5'>
         {youShouldAskQuestion.map((q) => (
-          <QCard title={q.question} desc={q.desc} />
+          <QCard key={q.question} title={q.question} desc={q.desc} />
         ))}
       </div>
     </>

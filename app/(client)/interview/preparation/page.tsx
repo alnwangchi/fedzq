@@ -8,7 +8,7 @@ import { useState } from 'react';
 
 const tabs = ["You'll Be Asked", 'You Should Ask'];
 
-const page = () => {
+const Page = () => {
   const [selected, setSelected] = useState(tabs[0]);
 
   const preparation = usePreparation();
@@ -35,4 +35,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;
