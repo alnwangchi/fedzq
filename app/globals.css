@@ -86,8 +86,3 @@
     @apply grid grid-cols-2 auto-rows-auto gap-y-5 gap-x-3 px-2;
   }
 }
-
-/* Tiptap 實際編輯器 overwrite */
-.ProseMirror {
-  @apply p-4 min-h-[360px];
-}
