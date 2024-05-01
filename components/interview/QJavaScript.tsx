@@ -16,7 +16,7 @@ import {
 } from '@/components/ui/form';
 
 import { toast } from '@/components/ui/use-toast';
-import { Textarea } from '../form/Textarea';
+import { Textarea } from '../interactive/Textarea';
 import { jsQuestion } from '@/constance/questions';
 import { useInterviewDispatch } from '@/Providers/InterviewContext';
 

@@ -16,10 +16,10 @@ import {
 } from '@/components/ui/form';
 
 import { toast } from '@/components/ui/use-toast';
-import { Textarea } from '../form/Textarea';
 
 import { useInterviewDispatch } from '@/Providers/InterviewContext';
 import { cssQuestion } from '@/constance/questions';
+import { Textarea } from '../interactive/Textarea';
 
 const FormSchema = z.object(Object.fromEntries(cssQuestion.map((obj) => [obj.question, obj.rule])));
 

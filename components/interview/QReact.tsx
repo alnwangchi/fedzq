@@ -10,7 +10,7 @@ import { Form, FormField } from '@/components/ui/form';
 import { toast } from '@/components/ui/use-toast';
 import { reactQuestion } from '@/constance/questions';
 import { Fragment } from 'react';
-import { Textarea } from '../form/Textarea';
+import { Textarea } from '../interactive/Textarea';
 import { useInterviewDispatch } from '@/Providers/InterviewContext';
 
 const flattenedReactQuestions = reactQuestion.flatMap((item) => {
