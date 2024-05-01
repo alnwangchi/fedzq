@@ -1,3 +1,4 @@
+import QCard from '@/components/interview/QCard';
 import Qpersonal from '@/components/interview/Qpersonal';
 import { Separator } from '@/components/ui/separator';
 import { getKindeServerSession } from '@kinde-oss/kinde-auth-nextjs/server';
@@ -6,12 +7,13 @@ const page = async () => {
   const { getUser } = getKindeServerSession();
   const user = await getUser();
 
-  if (process.env.ALLON_ID !== user?.id) return <p>GG</p>;
+  // if (process.env.ALLON_ID !== user?.id) return <p>GG</p>;
 
   return (
     <section>
       <h3 className='text-xl font-bold mb-5 ml-3'>Opening</h3>
       <div className='grid grid-cols-2 auto-rows-auto gap-5'>
+        <QCard title='title' desc='desc' />
         <Qpersonal
           tltle='準備簡單的自我介紹'
           desc='開頭簡略介紹基本資料，針對此技術職缺抓出些關鍵字，闡述自己符合的特質優勢。濃縮您過去的專案經歷，以技術為主強調熟悉擅長的領域'
