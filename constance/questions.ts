@@ -135,3 +135,34 @@ export const youShouldAskQuestion = [
     desc: '',
   },
 ];
+
+export const youWillBeAskedQuestion = [
+  {
+    question: '準備簡單的自我介紹',
+    desc: '開頭簡略介紹基本資料，針對此技術職缺抓出些關鍵字，闡述自己符合的特質優勢。濃縮您過去的專案經歷，以技術為主強調熟悉擅長的領域',
+  },
+  {
+    question: '履歷中有寫到的專案經歷',
+    desc: '較大型或是有完整參與優先分享，從使用的技術、框架深入去介紹',
+  },
+  {
+    question: '前端工程師須要具備那些條件跟特質',
+    desc: '',
+  },
+  {
+    question: '離職或是想換工作的原因以及對下一份職務的期望',
+    desc: '',
+  },
+  {
+    question: '過往工作經驗中對團隊最大的貢獻是什麼',
+    desc: '',
+  },
+  {
+    question: 'code review 的經驗',
+    desc: '',
+  },
+  {
+    question: '選擇工作時考量的優先級',
+    desc: '',
+  },
+];
