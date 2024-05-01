@@ -22,7 +22,7 @@ const Tiptap = () => {
   return (
     <div className='grow'>
       <EditorContent
-        className='p-1 border-2 border-solid border-gray-800 rounded-md mb-2 min-h-[360px]'
+        className='p-1 border-2 border-solid border-gray-800 rounded-md mb-5 min-h-[360px]'
         editor={editor}
       />
       <Button className='block ml-auto' type='submit' onClick={getHTMLValue}>
