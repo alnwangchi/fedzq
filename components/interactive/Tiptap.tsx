@@ -1,27 +1,18 @@
 'use client';
 
-import { useEditor, EditorContent } from '@tiptap/react';
-import StarterKit from '@tiptap/starter-kit';
-import { Button } from '../ui/button';
-import { usePreparation } from '@/Providers/PreparationContext';
-import { getLocalStorage, setLocalStorage } from '@/utils/localStorage';
-import { useEffect } from 'react';
 import { cn } from '@/lib/utils';
+import { EditorContent, useEditor } from '@tiptap/react';
+import StarterKit from '@tiptap/starter-kit';
 
 const Tiptap = ({ title, inEdit }: { title: string; inEdit: boolean }) => {
-  const preparation = usePreparation();
-  const { isSaveInLocalStorage } = preparation as any;
-  const content = getLocalStorage(title);
-
   const editor = useEditor({
     extensions: [StarterKit],
-    editable: inEdit ? true : false,
+    editable: true,
     editorProps: {
       attributes: {
-        class: inEdit ? 'min-h-[360px] p-3' : 'min-h-0',
+        class: '',
       },
     },
-    content,
   });
 
   const getHTMLValue = () => {
@@ -42,19 +33,6 @@ const Tiptap = ({ title, inEdit }: { title: string; inEdit: boolean }) => {
         )}
         editor={editor}
       />
-      {inEdit && (
-        <Button
-          className='block ml-auto'
-          type='submit'
-          onClick={() => {
-            if (isSaveInLocalStorage) {
-              setLocalStorage(title, getHTMLValue());
-            }
-          }}
-        >
-          Save
-        </Button>
-      )}
     </div>
   );
 };
