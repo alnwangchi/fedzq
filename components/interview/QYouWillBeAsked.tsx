@@ -9,7 +9,6 @@ const QYouWillBeAsked = () => {
           <QCard key={q.question} title={q.question} desc={q.desc} />
         ))}
       </div>
-      Ｏ
     </>
   );
 };

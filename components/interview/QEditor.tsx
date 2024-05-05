@@ -27,6 +27,8 @@ const Tiptap = ({
     editorProps: {
       attributes: {
         class: inEdit ? 'min-h-[360px] p-3' : 'min-h-0',
+        // conflict error: Autofocus processing was blocked because a document already has a focused element.
+        autofocus: 'true',
       },
     },
     content,
