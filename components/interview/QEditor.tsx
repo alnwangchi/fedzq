@@ -1,12 +1,13 @@
 'use client';
-
+import { useState } from 'react';
 import { useEditor, EditorContent } from '@tiptap/react';
 import StarterKit from '@tiptap/starter-kit';
 import { Button } from '../ui/button';
 import { usePreparation } from '@/Providers/PreparationContext';
 import { getLocalStorage, setLocalStorage } from '@/utils/localStorage';
-import { Dispatch, SetStateAction, useEffect } from 'react';
+import { Dispatch, SetStateAction, useEffect, useMemo } from 'react';
 import { cn } from '@/lib/utils';
+import { setBehaviorQ } from '@/api/preparation';
 
 const Tiptap = ({
   title,
@@ -18,8 +19,11 @@ const Tiptap = ({
   setInEdit?: Dispatch<SetStateAction<boolean>>;
 }) => {
   const preparation = usePreparation();
+  const [content, setContent] = useState();
   const { isSaveInLocalStorage } = preparation as any;
-  const content = getLocalStorage(title);
+  useEffect(() => {
+    setContent(getLocalStorage(title));
+  }, []);
 
   const editor = useEditor({
     extensions: [StarterKit],
@@ -43,6 +47,21 @@ const Tiptap = ({
     return textValue;
   };
 
+  const saveInDb = async () => {
+    try {
+      const res = await setBehaviorQ({
+        userId: 'OKOK',
+        title,
+        description: 'ok',
+        answer: 'test',
+        share: false,
+      });
+      console.log('🚀 ~ res:', res);
+    } catch (err) {
+      console.log('🚀 ~ err:', err);
+    }
+  };
+
   return (
     <div className=''>
       <EditorContent
@@ -59,6 +78,9 @@ const Tiptap = ({
           onClick={() => {
             if (isSaveInLocalStorage) {
               setLocalStorage(title, getHTMLValue());
+            } else {
+              console.log('calling');
+              saveInDb();
             }
             (setInEdit as Dispatch<SetStateAction<boolean>>)(false);
           }}

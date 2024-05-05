@@ -1,12 +1,14 @@
+import { syncAuth } from '@/api/user';
+import Sidebar from '@/components/local/Sidebar';
+import { ThemeProvider } from '@/components/theme-provider';
+import { Toaster } from '@/components/ui/toaster';
+import { cn } from '@/lib/utils';
+import { KindeUser } from '@/type';
+import { getKindeServerSession } from '@kinde-oss/kinde-auth-nextjs/server';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
-import Sidebar from '@/components/local/Sidebar';
-import { cn } from '@/lib/utils';
-import { Toaster } from '@/components/ui/toaster';
 const inter = Inter({ subsets: ['latin'] });
-import { getKindeServerSession } from '@kinde-oss/kinde-auth-nextjs/server';
-import { ThemeProvider } from '@/components/theme-provider';
 
 export const metadata: Metadata = {
   title: '前端當自強',
@@ -33,7 +35,6 @@ export default async function RootLayout({
     isAuthenticated,
   } = getKindeServerSession();
 
-  // console.log(await getAccessToken());
   // console.log(await getBooleanFlag('bflag', false));
   // console.log(await getFlag('flag', 'x', 's'));
   // console.log(await getIntegerFlag('iflag', 99));
@@ -46,7 +47,17 @@ export default async function RootLayout({
   // console.log(await isAuthenticated());
 
   const isAuth = await isAuthenticated();
-  // console.log('🚀 ~ isAuth:', isAuth);
+  if (isAuth) {
+    const user = (await getUser()) as KindeUser;
+    const name = `${user.given_name} ${user.family_name}`;
+
+    try {
+      const res = await syncAuth(name);
+      // console.log('🚀 ~ ress:', res);
+    } catch (err) {
+      // console.log(JSON.stringify(err));
+    }
+  }
 
   return (
     <html lang='en' suppressHydrationWarning>
