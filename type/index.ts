@@ -5,3 +5,12 @@ export interface KindeUser {
   email: string;
   id: string;
 }
+
+export interface CommonPost {
+  postId?: string;
+  userId: string;
+  title: string;
+  description: string;
+  answer: string;
+  share: boolean;
+}
