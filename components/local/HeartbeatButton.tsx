@@ -1,9 +1,24 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { PulsatingDots } from './loaders';
 
 const HeartbeatButton = ({ children }: { children: any }) => {
   const [isLoading, setIsLoading] = useState(false);
+
+  // workaround: 目前 kinde 提供的登入有時會沒有反應
+  useEffect(() => {
+    let timer = null;
+    if (isLoading) {
+      timer = setTimeout(() => {
+        setIsLoading(false);
+      }, 4500);
+    }
+    return () => {
+      if (timer) {
+        clearTimeout(timer);
+      }
+    };
+  }, [isLoading]);
 
   return (
     <div>
