@@ -13,7 +13,7 @@ function preparationReducer(state: any, action: any) {
 }
 
 const initialState = {
-  isSaveInLocalStorage: true,
+  isSaveInLocalStorage: false,
 } as const;
 
 const PreparationContext = createContext(null);
