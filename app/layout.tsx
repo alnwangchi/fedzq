@@ -1,4 +1,4 @@
-import { syncAuth } from '@/api/user';
+import { syncAuth } from '@/server/user';
 import Sidebar from '@/components/local/Sidebar';
 import { ThemeProvider } from '@/components/theme-provider';
 import { Toaster } from '@/components/ui/toaster';

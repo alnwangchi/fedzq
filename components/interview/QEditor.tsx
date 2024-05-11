@@ -7,7 +7,7 @@ import { usePreparation } from '@/Providers/PreparationContext';
 import { getLocalStorage, setLocalStorage } from '@/utils/localStorage';
 import { Dispatch, SetStateAction, useEffect, useMemo } from 'react';
 import { cn } from '@/lib/utils';
-import { getBehaviorQ, setBehaviorQ } from '@/api/preparation';
+import { getBehaviorQ, setBehaviorQ } from '@/server/preparation';
 import { getCookie, setCookie } from '@/utils/cookie';
 
 const Tiptap = ({
