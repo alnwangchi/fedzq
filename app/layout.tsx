@@ -35,20 +35,21 @@ export default async function RootLayout({
     isAuthenticated,
   } = getKindeServerSession();
 
-  // console.log(await getBooleanFlag('bflag', false));
-  // console.log(await getFlag('flag', 'x', 's'));
-  // console.log(await getIntegerFlag('iflag', 99));
-  // console.log(await getOrganization());
+  // console.log('getBooleanFlag', await getBooleanFlag('bflag', false));
+  console.log('getFlag', await getFlag('flag', 'x', 's'));
+  // console.log('getIntegerFlag', await getIntegerFlag('iflag', 99));
+  // console.log('getOrganizationa', await getOrganization());
   // console.log(await getPermission('eat:chips'));
-  // console.log(await getPermissions());
-  // console.log(await getStringFlag('sflag', 'test'));
-  // console.log(await getUser());
-  // console.log(await getUserOrganizations());
+  // console.log('getPermissions', await getPermissions());
+  // console.log('await', await getStringFlag('sflag', 'test'));
+  // console.log('getUser', await getUser());
+  // console.log('getUserOrganizations', await getUserOrganizations());
   // console.log(await isAuthenticated());
 
   const isAuth = await isAuthenticated();
   if (isAuth) {
     const user = (await getUser()) as KindeUser;
+
     const name = `${user.given_name} ${user.family_name}`;
 
     try {

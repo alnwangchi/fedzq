@@ -50,7 +50,6 @@ const Tiptap = ({
 
   const saveInDb = async () => {
     console.log(getCookie('access_token'));
-    setCookie('test', 'ok');
     try {
       // const res = await setBehaviorQ({
       //   userId: 'OKOK',
@@ -59,7 +58,15 @@ const Tiptap = ({
       //   answer: 'test',
       //   share: false,
       // });
-      const res = await getBehaviorQ('66364f78cd3c9c1857213ed2');
+      // const res = await getBehaviorQ('66364f78cd3c9c1857213ed2');
+      const res = await setBehaviorQ({
+        userId: '66364f78cd3c9c1857213ed2',
+        title: '準備簡單的自我介紹',
+        description:
+          '開頭簡略介紹基本資料，針對此技術職缺抓出些關鍵字，闡述自己符合的特質優勢。濃縮您過去的專案經歷，以技術為主強調熟悉擅長的領域',
+        answer: '<p>hello</p>',
+        share: false,
+      });
       console.log('🚀 ~ res:', res);
     } catch (err) {
       console.log('🚀 ~ err:', err);

@@ -2,7 +2,8 @@
 // these are for client side
 import Cookies from 'js-cookie';
 
-export function setCookie(key: string, value: any, options = {}) {
+export function setCookie(key: string, value: any, options = { SameSite: 'Lax' }) {
+  console.log('🚀 ~ options:', options);
   Cookies.set(key, value, options);
 }
 

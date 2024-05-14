@@ -16,7 +16,6 @@ export default function AuthenticationPage() {
         <h1 className='text-2xl font-semibold tracking-tight text-center'>FEDZQ 前端當自強</h1>
 
         <div className='flex justify-center items-center'>
-          <LoginLink>Log in</LoginLink>
           <HeartbeatButton>
             <LoginLink>Log in</LoginLink>
           </HeartbeatButton>
